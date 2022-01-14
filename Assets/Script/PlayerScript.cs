@@ -32,6 +32,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Camera.main.transform.position = new Vector3(-10, 5, 0) + transform.position;
+        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
+
         transform.position += new Vector3(speed, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.A))
