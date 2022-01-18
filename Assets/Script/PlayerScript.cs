@@ -60,6 +60,9 @@ public class PlayerScript : MonoBehaviour
             isGrounded = false;
             //transform.position += new Vector3(0, 4, 0);
         }
-    }
 
+        
+
+    }
+  
 }
