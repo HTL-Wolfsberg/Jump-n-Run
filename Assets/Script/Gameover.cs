@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Gameover : MonoBehaviour
 {
+    public PlayerScript s;
+    public GameObject Panel;
+    
+    
+
     public void RestartButton()
     {
         SceneManager.LoadScene("GameScene");
@@ -14,10 +19,13 @@ public class Gameover : MonoBehaviour
     {
         SceneManager.LoadScene("MenuScene");
     }
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider collision)
     {
-        if(other.tag == "Hindernis")
+        if(collision.tag == "Hindernis")
         {
+            PlayerScript.IsPaused = true;
+            s.speed = 0;           
+            Panel.SetActive(true);
             
         }
     }

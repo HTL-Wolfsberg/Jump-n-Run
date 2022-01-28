@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float speed;
+    public float speed = 0.09f;
     public Vector3 Jump;
     public float Jumpforce = 4;
+    public static bool IsPaused = false;
 
     public bool isGrounded;
     Rigidbody rb;
@@ -33,6 +34,10 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(IsPaused)
+        {
+            return;
+        }
 
         transform.position += new Vector3(speed, 0, 0);
 
@@ -69,7 +74,7 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        speed += 0.0001f;
+        speed += 0.0000001f;
     }
 
 }
