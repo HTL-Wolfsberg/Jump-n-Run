@@ -61,8 +61,11 @@ public class ChunkLoader : MonoBehaviour
         LoadedChunks.Add(posX, chunkScript);
     }
 
+    //Todo random generator
     GameObject GetRandomChunk()
     {
-        return ChunkPrefabs[0].gameObject;
+        int zufall = Random.Range(0, ChunkPrefabs.Length);
+        
+        return ChunkPrefabs[zufall].gameObject;
     }
 }

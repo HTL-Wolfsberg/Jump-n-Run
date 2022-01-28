@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165287780520948457}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.15707298, y: 0.247, z: -0.98}
+  m_LocalPosition: {x: 0.15707298, y: -0.253, z: -0.83}
   m_LocalScale: {x: 0.1, y: 2, z: 0.5}
   m_Children: []
   m_Father: {fileID: 266022824044190697}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: -8611082755441971100}
   - component: {fileID: 3398880457630474209}
   m_Layer: 0
-  m_Name: Chunk
+  m_Name: Chunk 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
