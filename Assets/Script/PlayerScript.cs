@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class PlayerScript : MonoBehaviour
     public Vector3 Jump;
     public float Jumpforce = 4;
     public static bool IsPaused = false;
-
     public bool isGrounded;
     Rigidbody rb;
 
@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Jump = new Vector3(0, 4, 0);
+        InvokeRepeating("distance", 0, 1/ speed);
     }
 
     void OnCollisionStay(Collision collision)
@@ -42,7 +43,7 @@ public class PlayerScript : MonoBehaviour
         transform.position += new Vector3(speed, 0, 0);
 
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown("left"))
         {
             if (step < 2)
             {
@@ -51,7 +52,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown("right"))
         {
             if (step > 0)
             {
@@ -59,7 +60,7 @@ public class PlayerScript : MonoBehaviour
                 transform.position -= new Vector3(0, 0, 4);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space)&& isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded || Input.GetKeyDown("up") && isGrounded)
         {
             rb.AddForce(Jump * Jumpforce, ForceMode.Impulse);
             isGrounded = false;
@@ -68,13 +69,13 @@ public class PlayerScript : MonoBehaviour
 
         Camera.main.transform.position = new Vector3(-10, 5, 0) + transform.position;
         Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
-
+        
 
     }
 
     private void FixedUpdate()
     {
-        speed += 0.0000001f;
+        speed += 0.00007f;
     }
 
 }

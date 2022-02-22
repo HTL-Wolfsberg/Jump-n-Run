@@ -8,11 +8,15 @@ public class Gameover : MonoBehaviour
 {
     public PlayerScript s;
     public GameObject Panel;
-    
-    
+
+    public void MenuButton()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 
     public void RestartButton()
     {
+        PlayerScript.IsPaused = false;
         SceneManager.LoadScene("GameScene");
     }
     public void ExitButton()
@@ -23,9 +27,10 @@ public class Gameover : MonoBehaviour
     {
         if(collision.tag == "Hindernis")
         {
+            Panel.SetActive(true);
             PlayerScript.IsPaused = true;
             s.speed = 0;           
-            Panel.SetActive(true);
+
             
         }
     }
