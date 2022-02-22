@@ -29,8 +29,7 @@ public class Gameover : MonoBehaviour
         {
             Panel.SetActive(true);
             PlayerScript.IsPaused = true;
-            s.speed = 0;           
-
+            s.speed = 0;
             
         }
     }
