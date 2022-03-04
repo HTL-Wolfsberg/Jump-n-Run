@@ -25,30 +25,30 @@ public class Score : MonoBehaviour
     //    score++;
     //}
 
+    string higscoreTextKey = "Highscore";
+
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        InvokeRepeating("distance", 0, 1/scorespeed);
-        Highscore = PlayerPrefs.GetFloat("Highscore");
+        Highscore = PlayerPrefs.GetFloat(higscoreTextKey);
     }
 
     // Update is called once per frame
     void Update()
     {
         //scoretext.text = score.ToString();
-        highscoretext.text = Highscore.ToString();
+        highscoretext.text = "Highscore: " +  Highscore.ToString();
         if (distanceunit > Highscore)
         {
-            PlayerPrefs.SetFloat("Highscore: ", Mathf.RoundToInt(distanceunit));
+            PlayerPrefs.SetFloat(higscoreTextKey, Mathf.RoundToInt(distanceunit));
         }
         distance();
-
     }
+
     //Score
     void distance()
     {
-
         distanceunit = distanceunit + scorespeed;
         distancemoved.text = "Points: " + Mathf.RoundToInt(distanceunit).ToString();
     }

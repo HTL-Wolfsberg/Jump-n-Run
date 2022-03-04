@@ -5,15 +5,23 @@ using UnityEngine;
 public class ChunkLoader : MonoBehaviour
 {
     public Chunk[] ChunkPrefabs;
-    public Chunk[] ChunkPrefabs1;
+    public Chunk emptyChunk;
     public PlayerScript PlayerScript;
-    
-    
+
+    GameObject parentGameobject;
+
+    public float safeZone = 10;
 
     Dictionary<int, Chunk> LoadedChunks = new Dictionary<int, Chunk>();
     public int chunkLoadingRange = 1;
 
     float timer = 0;
+
+    private void Start()
+    {
+        parentGameobject = new GameObject();
+        parentGameobject.name = "Chunks";
+    }
 
     // Update is called once per frame
     void Update()
@@ -56,8 +64,17 @@ public class ChunkLoader : MonoBehaviour
 
     void GenerateChunk(int posX)
     {
+        GameObject chunkGameObject;
+
+        if (posX < safeZone)
+        {
+            chunkGameObject = Instantiate(emptyChunk.gameObject, parentGameobject.transform);
+        }
+        else
+        {
+            chunkGameObject = Instantiate(GetRandomChunk(), parentGameobject.transform);
+        }
         
-        GameObject chunkGameObject = Instantiate(GetRandomChunk());
         Chunk chunkScript = chunkGameObject.GetComponent<Chunk>();
 
         chunkGameObject.transform.position = Vector3.zero + new Vector3(posX, 0, 0);
@@ -68,11 +85,7 @@ public class ChunkLoader : MonoBehaviour
     //Todo random generator
     GameObject GetRandomChunk()
     {
-        int zufall;
-        
-
-        
-        
+        int zufall;              
         
         zufall = Random.Range(0, ChunkPrefabs.Length -1);
         

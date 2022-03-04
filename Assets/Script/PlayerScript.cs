@@ -40,9 +40,7 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
-        transform.position += new Vector3(speed, 0, 0);
-
-
+       
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown("left"))
         {
             if (step < 2)
@@ -75,7 +73,13 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (IsPaused)
+        {
+            return;
+        }
+
         speed += 0.00007f;
+        transform.position += new Vector3(speed, 0, 0);
     }
 
 }
