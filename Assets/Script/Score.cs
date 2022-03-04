@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
     //    score++;
     //}
 
-    string higscoreTextKey = "Highscore";
+    public static string higscoreTextKey = "Highscore";
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class Score : MonoBehaviour
     void Update()
     {
         //scoretext.text = score.ToString();
-        highscoretext.text = "Highscore: " +  Highscore.ToString();
+        highscoretext.text = "Highscore: " +  Highscore.ToString()+" Points";
         if (distanceunit > Highscore)
         {
             PlayerPrefs.SetFloat(higscoreTextKey, Mathf.RoundToInt(distanceunit));
@@ -50,6 +50,6 @@ public class Score : MonoBehaviour
     void distance()
     {
         distanceunit = distanceunit + scorespeed;
-        distancemoved.text = "Points: " + Mathf.RoundToInt(distanceunit).ToString();
+        distancemoved.text = "Points: " + Mathf.RoundToInt(distanceunit).ToString() + " Points";
     }
 }
