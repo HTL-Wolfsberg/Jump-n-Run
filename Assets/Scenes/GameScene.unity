@@ -1353,8 +1353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 275.81445, y: 54.75232}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
+  m_SizeDelta: {x: 361.49, y: 54.7523}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1239676122
 GameObject:
@@ -2228,9 +2228,9 @@ MonoBehaviour:
   - {fileID: 5036136756687200803, guid: b260a365796595b47adb0c58d8f0d4e0, type: 3}
   - {fileID: 5036136756687200803, guid: 71a6f84a532745e46a1b16e2accc5978, type: 3}
   - {fileID: 5036136756687200803, guid: dc263cd9bfc52554c94b1f83bee2f017, type: 3}
-  ChunkPrefabs1:
-  - {fileID: 5036136756687200803, guid: 09d60d7efe65ec742a95a1710d4c6e93, type: 3}
+  emptyChunk: {fileID: 5036136756687200803, guid: 09d60d7efe65ec742a95a1710d4c6e93, type: 3}
   PlayerScript: {fileID: 1309341904}
+  safeZone: 30
   chunkLoadingRange: 20
 --- !u!4 &1805587859
 Transform:
