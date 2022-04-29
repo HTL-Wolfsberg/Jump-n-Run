@@ -25,12 +25,12 @@ public class Gameover : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collision)
     {
-        if(collision.tag == "Hindernis")
+        if (collision.tag == "Hindernis")
         {
             Panel.SetActive(true);
             PlayerScript.IsPaused = true;
             s.speed = 0;
-            
+
         }
     }
 }

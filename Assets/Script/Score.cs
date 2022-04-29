@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-
     //Score
     //public float counter = 0.001f;
     public float score;

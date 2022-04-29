@@ -14,6 +14,7 @@ public class ChunkLoader : MonoBehaviour
 
     Dictionary<int, Chunk> LoadedChunks = new Dictionary<int, Chunk>();
     public int chunkLoadingRange = 1;
+    int chunkLength = 20;
 
     float timer = 0;
 
@@ -39,11 +40,11 @@ public class ChunkLoader : MonoBehaviour
     {
         Vector3 playerPos = PlayerScript.transform.position;
         int playerPosX = GetChunkPos(playerPos.x);
-
         int chunkPosX;
+
         for (int x = -chunkLoadingRange; x < chunkLoadingRange; x++)
         {
-            chunkPosX = playerPosX + (x * 10);
+            chunkPosX = playerPosX + (x * chunkLength);
 
             if(!LoadedChunks.ContainsKey(chunkPosX))
             {
@@ -55,9 +56,9 @@ public class ChunkLoader : MonoBehaviour
     int GetChunkPos(float x)
     {
         //x = 11.5
-        x /= 10;//x = 1.15;
+        x /= chunkLength;//x = 1.15;
         x = Mathf.Floor(x);// x = 1
-        x *= 10; //x = 10
+        x *= chunkLength; //x = 10
 
         return (int)x;
     }

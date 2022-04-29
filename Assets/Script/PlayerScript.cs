@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float speed = 0.09f;
+    public float speed = 0.40f;
     public Vector3 Jump;
     public float Jumpforce = 4;
     public static bool IsPaused = false;
@@ -78,7 +78,7 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
-        speed += 0.00007f;
+        speed += 0.00005f;
         transform.position += new Vector3(speed, 0, 0);
     }
 
