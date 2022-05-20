@@ -10,15 +10,15 @@ public class PlayerScript : MonoBehaviour
     public float Jumpforce = 4;
     public static bool IsPaused = false;
     public bool isGrounded;
-    Rigidbody rb;
+
+   public Rigidbody rb;
 
     int step = 1; //0 = hinten 1 = mitte 2 = vorne;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         Jump = new Vector3(0, 4, 0);
-        InvokeRepeating("distance", 0, 1/ speed);
+        //InvokeRepeating("distance", 0, 1/ speed);
     }
 
     void OnCollisionStay(Collision collision)
@@ -40,24 +40,24 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
-       
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown("left"))
-        {
-            if (step < 2)
-            {
-                step++;
-                transform.position += new Vector3(0, 0, 4);
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown("right"))
-        {
-            if (step > 0)
-            {
-                step--;
-                transform.position -= new Vector3(0, 0, 4);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown("left"))
+        //{
+        //    if (step < 2)
+        //    {
+        //        step++;
+        //        transform.position += new Vector3(0, 0, 4);
+        //    }
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown("right"))
+        //{
+        //    if (step > 0)
+        //    {
+        //        step--;
+        //        transform.position -= new Vector3(0, 0, 4);
+        //    }
+        //}
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded || Input.GetKeyDown("up") && isGrounded)
         {
             rb.AddForce(Jump * Jumpforce, ForceMode.Impulse);
